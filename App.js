@@ -2,6 +2,9 @@ import { Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Universities from './src/Universities';
+import Login from "./src/login";
+import UniversityData from "./src/UniversiyData";
 
 function HomeScreen() {
   return (
@@ -26,14 +29,25 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ tabBarIcon: makeIconRender("home") }}
+          name="login"
+          component={Login}
+          options={{headerShown: false, tabBarStyle: {
+            display: "none",},
+            tabBarButton: () => null,}}
         />
         <Tab.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{ tabBarIcon: makeIconRender("cog") }}
+          name="university"
+          component={Universities}
+          options={{headerShown: false, tabBarStyle: {
+            display: "none",},
+            tabBarButton: () => null,}}
+        />
+        <Tab.Screen
+          name="Data"
+          component={UniversityData}
+          options={{headerShown: false, tabBarStyle: {
+            display: "none",},
+            tabBarButton: () => null,}}
         />
       </Tab.Navigator>
     </NavigationContainer>
